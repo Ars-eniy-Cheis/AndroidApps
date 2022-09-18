@@ -24,10 +24,10 @@ fun setTextView (view_array: Array<TextView>, value: String){
     }
 }
 
-fun change (view_array_current: Array<TextView>, view_array_next: Array<TextView>, value: KMutableProperty0<Int>){
+fun change (view_array_current: Array<TextView>, view_array_next: Array<TextView>){
     clear(view_array_current)
-    value.set(value.get() + 1)
-    setTextView(view_array_next, value.get().toString())
+    text_value += 1
+    setTextView(view_array_next, text_value.toString())
 }
 
 class MainActivity : AppCompatActivity() {
@@ -52,15 +52,15 @@ class MainActivity : AppCompatActivity() {
         roll_button.setOnClickListener{
             //Можно передавать ссылки на глобальные объекты, но нельзя на локальные (??????)
             if (text_value.mod(3) == 1){
-                change(text_views1, text_views2, ::text_value)
+                change(text_views1, text_views2)
 
             }
             else if (text_value.mod(3) == 2){
-                change(text_views2, text_views3, ::text_value)
+                change(text_views2, text_views3)
 
             }
             else{
-                change(text_views3, text_views1, ::text_value)
+                change(text_views3, text_views1)
             }
         }
     }
