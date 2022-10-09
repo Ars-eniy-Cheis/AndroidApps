@@ -19,7 +19,6 @@ fun catFacts(url: String, tag: String, client: OkHttpClient){
 
         override fun onResponse(call: Call, response: Response) {
             val str = response.body()?.string().toString()
-
             Log.v(tag, str)
 
         }
