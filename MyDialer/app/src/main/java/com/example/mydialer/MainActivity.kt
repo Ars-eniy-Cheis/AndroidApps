@@ -41,8 +41,6 @@ fun getContacts(service: ExecutorService, contacts: ArrayList<Contact>, search: 
         }
         searchContact
     })
-
-
     return contact.get()
 }
 

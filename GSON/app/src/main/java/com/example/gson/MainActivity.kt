@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity(), CellClickListener {
             recyclerView.layoutManager = GridLayoutManager(this, 2)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = PhotoAdapter(this, arrayListOf<String>(*links), this)
-            recyclerView.layoutManager = GridLayoutManager(this, 2)
         }
     }
 
