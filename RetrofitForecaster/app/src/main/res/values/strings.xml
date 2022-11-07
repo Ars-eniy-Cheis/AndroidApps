@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RetrofitForecaster</string>
+    <string name="hot_weather">U+2668</string>
+    <string name="cold_weather">U+2744</string>
+</resources>

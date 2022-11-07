@@ -44,20 +44,21 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         setContentView(R.layout.activity_main)
 
         val jsonFileString = getJsonDataFromAsset(applicationContext, "phones.json")
-
-        var mSettings: SharedPreferences = getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
-        val etSearch: TextView = findViewById(R.id.et_search)
-        etSearch.setText(mSettings.getString("SEARCH_FILTER", ""))
-
         val gson = Gson()
+        val adapter = ContactAdapter(this)
         val listContactType = object : TypeToken<List<Contact>>() {}.type
-
+        
         val contactsOriginal: ArrayList<Contact> = gson.fromJson(jsonFileString, listContactType)
         var contacts: ArrayList<Contact> = gson.fromJson(jsonFileString, listContactType)
 
+        var mSettings: SharedPreferences = getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+        val etSearch: TextView = findViewById(R.id.et_search)
+        
+        getContacts(contactsOriginal, contacts, mSettings.getString("SEARCH_FILTER", "").toString())
+        adapter.notifyDataSetChanged()
+        etSearch.setText(mSettings.getString("SEARCH_FILTER", ""))
 
         val recyclerView: RecyclerView = findViewById(R.id.rView)
-        val adapter = ContactAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
         adapter.submitList(contacts)
