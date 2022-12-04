@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/border"
+    >
+    <TextView
+        android:id="@+id/textDateHot"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:paddingRight="130dp"
+        android:text="date"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/imageWeatherHot"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:gravity="bottom|start"
+        android:layout_marginLeft="20dp"
+        android:text="icon"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:paddingTop="20dp"
+        />
+        <TextView
+            android:id="@+id/textTemperatureHot"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:gravity="start|bottom"
+            android:text="temperature"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            />
+</LinearLayout>
